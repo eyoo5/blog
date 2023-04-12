@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-router.use("/users", require("./users"));
+router.use("/users", require("./user"));
 router.use("/posts", require("./posts"));
 
 router.use((req, res, next) => {

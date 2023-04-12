@@ -79,3 +79,5 @@ posts.delete(":id/delete", async (req, res, next) => {
     next(error);
   }
 });
+
+module.exports = posts;
