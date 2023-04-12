@@ -1,5 +1,5 @@
 import React from "react";
-import { Connect } from "react-redux";
+import { connect } from "react-redux";
 
 const Posts = () => {
   return (
@@ -13,4 +13,4 @@ const mapState = (state) => {
   return {};
 };
 
-export default mapState(Posts);
+export default connect(mapState)(Posts);

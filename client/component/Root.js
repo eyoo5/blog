@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { Posts } from "./Posts";
+import Posts from "./Posts";
 
 const Root = () => {
   return (
