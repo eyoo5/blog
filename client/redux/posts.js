@@ -1,5 +1,5 @@
 import axios from "axios";
-import getCookie from "../index";
+import getCookie from "../cookies";
 
 //action types
 const GET_ALL_POSTS = "GET_ALL_POSTS";

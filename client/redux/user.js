@@ -1,5 +1,5 @@
 import axios from "axios";
-import getCookie from "../index";
+import getCookie from "../cookies";
 
 //action types
 const SET_USER = "SET_USER";

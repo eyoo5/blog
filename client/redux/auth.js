@@ -1,6 +1,6 @@
 import axios from "axios";
 import history from "../history";
-import { getCookie, setCookie } from "../index";
+import { getCookie, setCookie } from "../cookies";
 
 const TOKEN = "token";
 
