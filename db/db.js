@@ -5,7 +5,6 @@ let config;
 
 if (process.env.DATABASE_URL) {
   config = {
-    dialect: "postgres",
     logging: false,
     ssl: true,
     dialectOptions: {
