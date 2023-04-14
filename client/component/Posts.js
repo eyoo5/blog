@@ -30,7 +30,7 @@ const Posts = (props) => {
       <br></br>
       <h3> My Stories </h3>
       <br></br>
-      <div className="container">
+      <div className="box">
         <p className="about">
           Here you will find blog posts on things I have been learning,
           challenges I have been facing, and just regular funny stories that
@@ -38,7 +38,7 @@ const Posts = (props) => {
         </p>
       </div>
       <br></br>
-      <div className="container">
+      <div className="box">
         <Container>
           {posts.map((singlePost) => {
             return (
