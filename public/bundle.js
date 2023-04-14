@@ -6754,7 +6754,7 @@ var Projects = function Projects() {
     className: "box"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", {
     className: "title"
-  }, "\uD83D\uDC07 ToDo App"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+  }, "\uD83D\uDCCB ToDo App"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
     className: "project"
   }, "To study desktop apps, I created a simple todo application using electron."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     style: {

@@ -106,7 +106,7 @@ const Projects = () => {
       </div>
       <br />
       <div className="box">
-        <h5 className="title">&#128007; ToDo App</h5>
+        <h5 className="title">&#128203; ToDo App</h5>
         <p className="project">
           To study desktop apps, I created a simple todo application using
           electron.
