@@ -49,19 +49,21 @@ a {
 /* footer */
 footer {
   background-color: #2f4f4f;
-  text-align: left;
   padding-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 #footer-text {
   color: lightgray;
-  margin-top: 1rem;
   padding-top: 2rem;
-  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-#footer-pic {
-  width: 5rem;
-  height: 5rem;
-  align-items: right;
+.footer-img {
+  width: 50px;
+  padding-top: 1rem;
+  padding-right: 1rem;
 }
