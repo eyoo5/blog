@@ -2,7 +2,20 @@ import React from "react";
 import { connect, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchAllPosts } from "../redux/posts";
-import { Card, Container } from "react-bootstrap";
+import { Card, Stack, Container } from "react-bootstrap";
+
+//Time Display:
+function timeDisplayConverter(time) {
+  const formattedTime = new Date(time).toLocaleTimeString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
+  return formattedTime;
+}
 
 const Posts = (props) => {
   const dispatch = useDispatch();
@@ -15,27 +28,44 @@ const Posts = (props) => {
   return (
     <>
       <br></br>
-      <h3> My Journey </h3>
+      <h3> My Stories </h3>
       <br></br>
-
-      {posts.map((singlePost) => {
-        return (
-          <Container key={singlePost.id}>
-            <Card
-              className="mb-4"
-              style={{ width: "18rem", height: "30rem" }}
-              key={singlePost.id}
-            >
-              <Card.Header as="h6">{singlePost.createdAt}</Card.Header>
-              <Card.Body>
-                <Card.Title>{singlePost.title}</Card.Title>
-                <Card.Text>{singlePost.content}</Card.Text>
-                {/* <Button variant="primary">Go somewhere</Button> */}
-              </Card.Body>
-            </Card>
-          </Container>
-        );
-      })}
+      <div className="container">
+        <p className="about">
+          Here you will find blog posts on things I have been learning,
+          challenges I have been facing, and just regular funny stories that
+          have happened to me. Feel free to read, laugh, and explore!
+        </p>
+      </div>
+      <br></br>
+      <div className="container">
+        <Container>
+          {posts.map((singlePost) => {
+            return (
+              <Card
+                className="mb-4"
+                style={{
+                  width: "auto",
+                  height: "auto",
+                  fontFamily: "optima",
+                  color: "#8B4513",
+                  boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                }}
+                key={singlePost.id}
+              >
+                <Card.Header as="h6" style={{ textAlign: "right" }}>
+                  {timeDisplayConverter(singlePost.createdAt)}
+                </Card.Header>
+                <Card.Body>
+                  <Card.Title>{singlePost.title}</Card.Title>
+                  <Card.Text>{singlePost.content}</Card.Text>
+                  {/* <Button variant="primary">Edit</Button> */}
+                </Card.Body>
+              </Card>
+            );
+          })}
+        </Container>
+      </div>
     </>
   );
 };

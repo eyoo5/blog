@@ -4253,26 +4253,49 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+//Time Display:
+function timeDisplayConverter(time) {
+  var formattedTime = new Date(time).toLocaleTimeString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true
+  });
+  return formattedTime;
+}
 var Posts = function Posts(props) {
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_redux_posts__WEBPACK_IMPORTED_MODULE_2__.fetchAllPosts)());
   }, []);
   var posts = props.posts;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, " My Journey "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), posts.map(function (singlePost) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      key: singlePost.id
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, " My Stories "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    className: "about"
+  }, "Here you will find blog posts on things I have been learning, challenges I have been facing, and just regular funny stories that have happened to me. Feel free to read, laugh, and explore!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["default"], null, posts.map(function (singlePost) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"], {
       className: "mb-4",
       style: {
-        width: "18rem",
-        height: "30rem"
+        width: "auto",
+        height: "auto",
+        fontFamily: "optima",
+        color: "#8B4513",
+        boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"
       },
       key: singlePost.id
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"].Header, {
-      as: "h6"
-    }, singlePost.createdAt), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"].Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"].Title, null, singlePost.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"].Text, null, singlePost.content))));
-  }));
+      as: "h6",
+      style: {
+        textAlign: "right"
+      }
+    }, timeDisplayConverter(singlePost.createdAt)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"].Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"].Title, null, singlePost.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"].Text, null, singlePost.content)));
+  }))));
 };
 var mapState = function mapState(state) {
   return {
@@ -4642,7 +4665,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  background: #ffe4e1;\n}\nh3 {\n  text-align: center;\n  font-family: optima;\n  font-weight: bold;\n  color: #2f4f4f;\n}\n.container {\n  background: #f5fffa;\n  padding: 1rem;\n  border-radius: 1rem;\n}\n\n.about {\n  text-align: center;\n  font-family: optima;\n  color: #2f4f4f;\n}\n", "",{"version":3,"sources":["webpack://./public/index.css"],"names":[],"mappings":"AAAA;;EAEE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;EACjB,cAAc;AAChB;AACA;EACE,mBAAmB;EACnB,aAAa;EACb,mBAAmB;AACrB;;AAEA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,cAAc;AAChB","sourcesContent":["html,\nbody {\n  background: #ffe4e1;\n}\nh3 {\n  text-align: center;\n  font-family: optima;\n  font-weight: bold;\n  color: #2f4f4f;\n}\n.container {\n  background: #f5fffa;\n  padding: 1rem;\n  border-radius: 1rem;\n}\n\n.about {\n  text-align: center;\n  font-family: optima;\n  color: #2f4f4f;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
