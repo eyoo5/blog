@@ -17,7 +17,17 @@ async function seed() {
 
   const post = await Promise.all([
     Post.create({
-      title: "Seed Post",
+      title: "Seed Post 1",
+      content: "For building purposes.",
+      UserId: 1,
+    }),
+    Post.create({
+      title: "Seed Post 2",
+      content: "For building purposes.",
+      UserId: 1,
+    }),
+    Post.create({
+      title: "Seed Post 3",
       content: "For building purposes.",
       UserId: 1,
     }),

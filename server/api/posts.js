@@ -9,7 +9,7 @@ posts.get("/:userId", async (req, res, next) => {
     if (user) {
       const options = {};
       //  Trying pagination:
-      console.log("HERE =====>", req.query.limit);
+
       if (Object.keys(req.query).length) {
         const { limit, sort } = req.query;
         if (limit) options.limit = limit || 5;
@@ -20,7 +20,7 @@ posts.get("/:userId", async (req, res, next) => {
       }
       const data = await Post.findAll(
         {
-          where: { id: userId },
+          where: { UserId: userId },
         },
         {},
         options
