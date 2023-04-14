@@ -14,6 +14,14 @@ async function seed() {
       description: "",
     }),
   ]);
+
+  const post = await Promise.all([
+    Post.create({
+      title: "Seed Post",
+      content: "For building purposes.",
+      UserId: 1,
+    }),
+  ]);
 }
 
 async function runSeed() {
