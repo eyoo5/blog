@@ -139,8 +139,8 @@ const Projects = () => {
           }}
         >
           <iframe
-            width="560"
-            height="315"
+            width="430"
+            height="215"
             src="https://www.youtube.com/embed/HNk9d7CpPGs"
             title="YouTube video player"
             frameBorder="0"

@@ -6588,8 +6588,11 @@ var NavigationBar = function NavigationBar() {
       fontFamily: "optima"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_3__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"].Brand, {
-    href: "#home"
-  }, "Esther_Yoo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    href: "#home",
+    style: {
+      fontFamily: "Brush Script MT"
+    }
+  }, "Esther Yoo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_4__["default"], {
     className: "me-auto"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_4__["default"].Link, {
     href: "#home"
@@ -6773,8 +6776,8 @@ var Projects = function Projects() {
       marginBottom: "1rem"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("iframe", {
-    width: "560",
-    height: "315",
+    width: "430",
+    height: "215",
     src: "https://www.youtube.com/embed/HNk9d7CpPGs",
     title: "YouTube video player",
     frameBorder: "0",
