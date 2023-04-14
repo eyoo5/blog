@@ -8,6 +8,9 @@ h3 {
   font-weight: bold;
   color: #2f4f4f;
 }
+a {
+  text-decoration: #8b4513;
+}
 .box {
   background: #f5fffa;
   padding: 1rem;
@@ -16,8 +19,49 @@ h3 {
   border-radius: 1rem;
 }
 
+/*blog*/
+.blog {
+  background: #f5fffa;
+  padding: 1rem;
+  margin-left: 6rem;
+  margin-right: 6rem;
+  margin-bottom: 6rem;
+  border-radius: 1rem;
+}
 .about {
   text-align: center;
   font-family: optima;
   color: #2f4f4f;
+}
+
+/* projects */
+.title {
+  font-family: optima;
+  font-weight: bold;
+  text-align: left;
+  color: #2f4f4f;
+}
+.project {
+  font-family: optima;
+  color: #8b4513;
+}
+
+/* footer */
+footer {
+  background-color: #2f4f4f;
+  text-align: left;
+  padding-bottom: 1rem;
+}
+
+#footer-text {
+  color: lightgray;
+  margin-top: 1rem;
+  padding-top: 2rem;
+  padding-left: 1rem;
+}
+
+#footer-pic {
+  width: 5rem;
+  height: 5rem;
+  align-items: right;
 }

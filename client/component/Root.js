@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Posts from "./Posts";
 import NavigationBar from "./NavBar";
+import Projects from "./Projects";
 
 const Root = () => {
   return (
@@ -10,6 +11,7 @@ const Root = () => {
       <NavigationBar />
       <Routes>
         <Route exact path="/posts" element={<Posts />} />
+        <Route exact path="/projects" element={<Projects />} />
       </Routes>
     </BrowserRouter>
   );

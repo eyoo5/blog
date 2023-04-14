@@ -27,9 +27,9 @@ const Posts = (props) => {
 
   return (
     <>
-      <br></br>
-      <h3> My Stories </h3>
-      <br></br>
+      <br />
+      <h3> My_Stories </h3>
+      <br />
       <div className="box">
         <p className="about">
           Here you will find blog posts on things I have been learning,
@@ -38,7 +38,7 @@ const Posts = (props) => {
         </p>
       </div>
       <br></br>
-      <div className="box">
+      <div className="blog">
         <Container>
           {posts.map((singlePost) => {
             return (
