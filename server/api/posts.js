@@ -2,9 +2,9 @@ const posts = require("express").Router();
 
 const { Post, User } = require("../../db");
 
-posts.get("/:userId", async (req, res, next) => {
+posts.get("/userId", async (req, res, next) => {
   try {
-    const { userId } = req.params;
+    const userId = 1; //my userId
     const user = await User.findByPk(userId);
     if (user) {
       const options = {};

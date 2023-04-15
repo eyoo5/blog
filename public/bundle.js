@@ -10638,7 +10638,7 @@ var fetchAllPosts = function fetchAllPosts() {
           case 0:
             _context.prev = 0;
             _context.next = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/posts/".concat(1, "?limit=5"));
+            return axios__WEBPACK_IMPORTED_MODULE_1__["default"].get("/api/posts/userId?limit=5&sort=desc");
           case 3:
             _yield$axios$get = _context.sent;
             posts = _yield$axios$get.data;
