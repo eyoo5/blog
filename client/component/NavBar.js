@@ -9,11 +9,11 @@ const NavigationBar = () => {
     <>
       <Navbar bg="secondary" variant="light" style={{ fontFamily: "optima" }}>
         <Container>
-          <Navbar.Brand href="#home" style={{ fontFamily: "Brush Script MT" }}>
+          <Navbar.Brand href="/home" style={{ fontFamily: "Brush Script MT" }}>
             Esther Yoo
           </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">About</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/projects">Projects</Nav.Link>
             <Nav.Link href="/posts">Stories</Nav.Link>
           </Nav>
