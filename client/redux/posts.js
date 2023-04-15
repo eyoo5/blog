@@ -17,7 +17,7 @@ export const fetchAllPosts = () => {
   return async (dispatch) => {
     try {
       const { data: posts } = await axios.get(
-        `/api/posts/${1}?limit=5&sort= desc`
+        `/api/posts/${1}?limit=5&sort=desc`
       );
       dispatch(getAllPosts(posts));
     } catch (error) {
