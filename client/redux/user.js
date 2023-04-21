@@ -1,5 +1,5 @@
 import axios from "axios";
-import getCookie from "../cookies";
+// import getCookie from "../cookies";
 
 //action types
 const SET_USER = "SET_USER";
@@ -17,8 +17,8 @@ const setUser = (user) => {
 const fetchUser = () => {
   return async (dispatch) => {
     try {
-      const id = getCookie("userId");
-      const token = getCookie("token");
+      // const id = getCookie("userId");
+      // const token = getCookie("token");
       const { data: user } = await axios.get(`/api/users/${id}`);
       dispatch(setUser(user));
     } catch (error) {
