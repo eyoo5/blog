@@ -9625,6 +9625,204 @@ const TabContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createContext
 
 /***/ }),
 
+/***/ "./node_modules/@restart/ui/esm/TabPanel.js":
+/*!**************************************************!*\
+  !*** ./node_modules/@restart/ui/esm/TabPanel.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "useTabPanel": () => (/* binding */ useTabPanel)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _TabContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TabContext */ "./node_modules/@restart/ui/esm/TabContext.js");
+/* harmony import */ var _SelectableContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SelectableContext */ "./node_modules/@restart/ui/esm/SelectableContext.js");
+/* harmony import */ var _NoopTransition__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NoopTransition */ "./node_modules/@restart/ui/esm/NoopTransition.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+const _excluded = ["active", "eventKey", "mountOnEnter", "transition", "unmountOnExit", "role", "onEnter", "onEntering", "onEntered", "onExit", "onExiting", "onExited"],
+  _excluded2 = ["activeKey", "getControlledId", "getControllerId"],
+  _excluded3 = ["as"];
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+
+
+
+
+
+function useTabPanel(_ref) {
+  let {
+      active,
+      eventKey,
+      mountOnEnter,
+      transition,
+      unmountOnExit,
+      role = 'tabpanel',
+      onEnter,
+      onEntering,
+      onEntered,
+      onExit,
+      onExiting,
+      onExited
+    } = _ref,
+    props = _objectWithoutPropertiesLoose(_ref, _excluded);
+  const context = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_TabContext__WEBPACK_IMPORTED_MODULE_2__["default"]);
+  if (!context) return [Object.assign({}, props, {
+    role
+  }), {
+    eventKey,
+    isActive: active,
+    mountOnEnter,
+    transition,
+    unmountOnExit,
+    onEnter,
+    onEntering,
+    onEntered,
+    onExit,
+    onExiting,
+    onExited
+  }];
+  const {
+      activeKey,
+      getControlledId,
+      getControllerId
+    } = context,
+    rest = _objectWithoutPropertiesLoose(context, _excluded2);
+  const key = (0,_SelectableContext__WEBPACK_IMPORTED_MODULE_3__.makeEventKey)(eventKey);
+  return [Object.assign({}, props, {
+    role,
+    id: getControlledId(eventKey),
+    'aria-labelledby': getControllerId(eventKey)
+  }), {
+    eventKey,
+    isActive: active == null && key != null ? (0,_SelectableContext__WEBPACK_IMPORTED_MODULE_3__.makeEventKey)(activeKey) === key : active,
+    transition: transition || rest.transition,
+    mountOnEnter: mountOnEnter != null ? mountOnEnter : rest.mountOnEnter,
+    unmountOnExit: unmountOnExit != null ? unmountOnExit : rest.unmountOnExit,
+    onEnter,
+    onEntering,
+    onEntered,
+    onExit,
+    onExiting,
+    onExited
+  }];
+}
+const TabPanel = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(
+// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+(_ref2, ref) => {
+  let {
+      as: Component = 'div'
+    } = _ref2,
+    props = _objectWithoutPropertiesLoose(_ref2, _excluded3);
+  const [tabPanelProps, {
+    isActive,
+    onEnter,
+    onEntering,
+    onEntered,
+    onExit,
+    onExiting,
+    onExited,
+    mountOnEnter,
+    unmountOnExit,
+    transition: Transition = _NoopTransition__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }] = useTabPanel(props);
+  // We provide an empty the TabContext so `<Nav>`s in `<TabPanel>`s don't
+  // conflict with the top level one.
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_TabContext__WEBPACK_IMPORTED_MODULE_2__["default"].Provider, {
+    value: null,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_SelectableContext__WEBPACK_IMPORTED_MODULE_3__["default"].Provider, {
+      value: null,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Transition, {
+        in: isActive,
+        onEnter: onEnter,
+        onEntering: onEntering,
+        onEntered: onEntered,
+        onExit: onExit,
+        onExiting: onExiting,
+        onExited: onExited,
+        mountOnEnter: mountOnEnter,
+        unmountOnExit: unmountOnExit,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Component, Object.assign({}, tabPanelProps, {
+          ref: ref,
+          hidden: !isActive,
+          "aria-hidden": !isActive
+        }))
+      })
+    })
+  });
+});
+TabPanel.displayName = 'TabPanel';
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TabPanel);
+
+/***/ }),
+
+/***/ "./node_modules/@restart/ui/esm/Tabs.js":
+/*!**********************************************!*\
+  !*** ./node_modules/@restart/ui/esm/Tabs.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var uncontrollable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! uncontrollable */ "./node_modules/@restart/ui/node_modules/uncontrollable/lib/esm/index.js");
+/* harmony import */ var _ssr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ssr */ "./node_modules/@react-aria/ssr/dist/import.mjs");
+/* harmony import */ var _TabContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TabContext */ "./node_modules/@restart/ui/esm/TabContext.js");
+/* harmony import */ var _SelectableContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SelectableContext */ "./node_modules/@restart/ui/esm/SelectableContext.js");
+/* harmony import */ var _TabPanel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./TabPanel */ "./node_modules/@restart/ui/esm/TabPanel.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+
+const Tabs = props => {
+  const {
+    id: userId,
+    generateChildId: generateCustomChildId,
+    onSelect: propsOnSelect,
+    activeKey: propsActiveKey,
+    defaultActiveKey,
+    transition,
+    mountOnEnter,
+    unmountOnExit,
+    children
+  } = props;
+  const [activeKey, onSelect] = (0,uncontrollable__WEBPACK_IMPORTED_MODULE_1__.useUncontrolledProp)(propsActiveKey, defaultActiveKey, propsOnSelect);
+  const id = (0,_ssr__WEBPACK_IMPORTED_MODULE_3__.useSSRSafeId)(userId);
+  const generateChildId = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => generateCustomChildId || ((key, type) => id ? `${id}-${type}-${key}` : null), [id, generateCustomChildId]);
+  const tabContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(() => ({
+    onSelect,
+    activeKey,
+    transition,
+    mountOnEnter: mountOnEnter || false,
+    unmountOnExit: unmountOnExit || false,
+    getControlledId: key => generateChildId(key, 'tabpane'),
+    getControllerId: key => generateChildId(key, 'tab')
+  }), [onSelect, activeKey, transition, mountOnEnter, unmountOnExit, generateChildId]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_TabContext__WEBPACK_IMPORTED_MODULE_4__["default"].Provider, {
+    value: tabContext,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_SelectableContext__WEBPACK_IMPORTED_MODULE_5__["default"].Provider, {
+      value: onSelect || null,
+      children: children
+    })
+  });
+};
+Tabs.Panel = _TabPanel__WEBPACK_IMPORTED_MODULE_6__["default"];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Tabs);
+
+/***/ }),
+
 /***/ "./node_modules/@restart/ui/esm/getScrollbarWidth.js":
 /*!***********************************************************!*\
   !*** ./node_modules/@restart/ui/esm/getScrollbarWidth.js ***!
@@ -10234,6 +10432,68 @@ function isEscKey(e) {
 
 /***/ }),
 
+/***/ "./node_modules/@restart/ui/node_modules/uncontrollable/lib/esm/index.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@restart/ui/node_modules/uncontrollable/lib/esm/index.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "defaultKey": () => (/* binding */ defaultKey),
+/* harmony export */   "useUncontrolled": () => (/* binding */ useUncontrolled),
+/* harmony export */   "useUncontrolledProp": () => (/* binding */ useUncontrolledProp)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+function defaultKey(key) {
+  return 'default' + key.charAt(0).toUpperCase() + key.substr(1);
+}
+function useUncontrolledProp(propValue, defaultValue, handler) {
+  const wasPropRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(propValue !== undefined);
+  const [stateValue, setState] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(defaultValue);
+  const isProp = propValue !== undefined;
+  const wasProp = wasPropRef.current;
+  wasPropRef.current = isProp;
+
+  /**
+   * If a prop switches from controlled to Uncontrolled
+   * reset its value to the defaultValue
+   */
+  if (!isProp && wasProp && stateValue !== defaultValue) {
+    setState(defaultValue);
+  }
+  return [isProp ? propValue : stateValue, (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((value, ...args) => {
+    if (handler) handler(value, ...args);
+    setState(value);
+  }, [handler])];
+}
+
+function useUncontrolled(props, config) {
+  return Object.keys(config).reduce((result, fieldName) => {
+    const _ref = result,
+      _defaultKey = defaultKey(fieldName),
+      {
+        [_defaultKey]: defaultValue,
+        [fieldName]: propsValue
+      } = _ref,
+      rest = _objectWithoutPropertiesLoose(_ref, [_defaultKey, fieldName].map(_toPropertyKey));
+    const handlerName = config[fieldName];
+    const [value, handler] = useUncontrolledProp(propsValue, defaultValue, props[handlerName]);
+    return Object.assign({}, rest, {
+      [fieldName]: value,
+      [handlerName]: handler
+    });
+  }, props);
+}
+
+/***/ }),
+
 /***/ "./client/component/About.js":
 /*!***********************************!*\
   !*** ./client/component/About.js ***!
@@ -10248,14 +10508,125 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Tabs.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Tab.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/OverlayTrigger.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/Tooltip.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 var About = function About() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("home"),
+    _useState2 = _slicedToArray(_useState, 2),
+    key = _useState2[0],
+    setKey = _useState2[1];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Who am I?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "box"
+    id: "about-box"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    defaultActiveKey: "profile",
+    activeKey: key,
+    onSelect: function onSelect(k) {
+      return setKey(k);
+    },
+    className: "mb-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    eventKey: "home",
+    title: "Home"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "box-about"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "about"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", null, "I am a former teacher now turned coder!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("figure", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    src: "5_Grade_Team.jpeg",
+    width: "300",
+    style: {
+      marginTop: "1rem"
+    }
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("figcaption", null, "Former 5th Grade Team"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
+    style: {
+      marginTop: "1rem"
+    }
+  }, "I have worked for the NYC Department of Education for 6 years. However, just because I have left the profession does not mean I am no longer a teacher. Teaching is a part of me and I will take it where ever I go. The skills that I have gained like communication, leadership, and organization will be with me forever!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Along being a teacher, I am a life long learner. I studied foundational JavaScript and entered a coding bootcamp in September of 2022. I learned the PERN stack(PostgreSQL, Express, React, Node.js) and graduated in December 2022. This does not mean I have stopped learning! Currently, I am dabbling into Python, MongoDB, and Cloud~"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    src: "PERN.png",
+    width: "600"
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    eventKey: "careers",
+    title: "Careers"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "box-about"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    overlay: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      id: "button-tooltip",
+      placement: "auto-right"
+    }, "Click to visit website!")
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "ps"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: "https://www.ps110q.org/"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", {
+    className: "title"
+  }, "P.S.110Q")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Worked as a 5th grade teacher for 3 years."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Led a team of 9, composed of 5th grade teachers and 3 para-professionals, implementing new curriclums focused on literacy and math."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    overlay: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      id: "button-tooltip",
+      placement: "auto-right"
+    }, "Click to visit website!")
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "ps"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: "https://www.ps229q.org/"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", {
+    className: "title"
+  }, "P.S.229Q")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Worked as a 1st grade teacher for 3 years."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Flagshipped new science program for the school. "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    eventKey: "hobbies",
+    title: "Hobbies"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "box-about"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", {
+    className: "project"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "Dancing"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "I have chorepgraphed pieces for my church and was in a College Christian Dance Group!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "center",
+      marginBottom: "1rem"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("iframe", {
+    width: "360",
+    height: "215",
+    src: "https://www.youtube.com/embed/k8YoXNCcae8",
+    title: "YouTube video player",
+    frameBorder: "0",
+    allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+    allowFullScreen: true
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "Singing"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "I am part of my church choir, but I love to also sing American and Korean pop songs!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "center",
+      marginBottom: "1rem"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("iframe", {
+    width: "360",
+    height: "215",
+    src: "https://www.youtube.com/embed/videoseries?list=PLp9ZQb8u28IvSJ_zynjPnmY-REgz6G1jy",
+    title: "YouTube video player",
+    frameBorder: "0",
+    allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+    allowFullScreen: true
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, " Writing "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "On my free time, I like to write poetry. I won't say I am good, but it helps me navigate my feelings!")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    eventKey: "contact",
+    title: "Contact"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "box-about"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
     className: "about"
-  })));
+  }, "If you are interested, need advice, or just curious about something - do not hesitate to contact me! if you prefer LinkedIn, you may press on the link in the footer!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "about"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h6", null, "Email:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, " liletchie@gmail.com")))))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(null)(About));
 
@@ -10881,7 +11252,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  background: #ffe4e1;\n}\nh3 {\n  text-align: center;\n  font-family: optima;\n  font-weight: bold;\n  color: #2f4f4f;\n}\na {\n  text-decoration: #8b4513;\n}\n.box {\n  background: #f5fffa;\n  padding: 1rem;\n  margin-left: 6rem;\n  margin-right: 6rem;\n  border-radius: 1rem;\n}\n\n/*blog*/\n.blog {\n  background: #f5fffa;\n  padding: 1rem;\n  margin-left: 6rem;\n  margin-right: 6rem;\n  margin-bottom: 6rem;\n  border-radius: 1rem;\n}\n.about {\n  text-align: center;\n  font-family: optima;\n  color: #2f4f4f;\n}\n\n/* projects */\n.box-project {\n  background: #f5fffa;\n  padding: 1rem;\n  margin-left: 4rem;\n  margin-right: 4rem;\n  margin-top: 2rem;\n  margin-bottom: 2rem;\n  border-radius: 1rem;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,\n    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,\n    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;\n}\n.title {\n  font-family: optima;\n  font-weight: bold;\n  text-align: left;\n  color: #2f4f4f;\n}\n.project {\n  font-family: optima;\n  color: #8b4513;\n  padding-bottom: 1rem;\n}\n#big-box {\n  background: #f5f5f5;\n  padding: 1rem;\n  margin-left: 4rem;\n  margin-right: 4rem;\n  border-radius: 1rem;\n  overflow-y: scroll;\n  max-height: 45rem;\n  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,\n    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;\n}\n\n#trip {\n  max-width: 8rem;\n}\n\n#chef {\n  max-width: 15rem;\n}\n\n/* footer */\nfooter {\n  background-color: #2f4f4f;\n  padding-bottom: 1rem;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n#footer-text {\n  color: lightgray;\n  padding-top: 2rem;\n  padding-right: 1rem;\n}\n\n.footer-img {\n  width: 50px;\n  padding-top: 1rem;\n  padding-right: 1rem;\n}\n", "",{"version":3,"sources":["webpack://./public/index.css"],"names":[],"mappings":"AAAA;;EAEE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;EACjB,cAAc;AAChB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,mBAAmB;EACnB,aAAa;EACb,iBAAiB;EACjB,kBAAkB;EAClB,mBAAmB;AACrB;;AAEA,OAAO;AACP;EACE,mBAAmB;EACnB,aAAa;EACb,iBAAiB;EACjB,kBAAkB;EAClB,mBAAmB;EACnB,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,cAAc;AAChB;;AAEA,aAAa;AACb;EACE,mBAAmB;EACnB,aAAa;EACb,iBAAiB;EACjB,kBAAkB;EAClB,gBAAgB;EAChB,mBAAmB;EACnB,mBAAmB;EACnB;;uEAEqE;AACvE;AACA;EACE,mBAAmB;EACnB,iBAAiB;EACjB,gBAAgB;EAChB,cAAc;AAChB;AACA;EACE,mBAAmB;EACnB,cAAc;EACd,oBAAoB;AACtB;AACA;EACE,mBAAmB;EACnB,aAAa;EACb,iBAAiB;EACjB,kBAAkB;EAClB,mBAAmB;EACnB,kBAAkB;EAClB,iBAAiB;EACjB;uCACqC;AACvC;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,gBAAgB;AAClB;;AAEA,WAAW;AACX;EACE,yBAAyB;EACzB,oBAAoB;EACpB,aAAa;EACb,mBAAmB;EACnB,mBAAmB;EACnB,yBAAyB;AAC3B;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,WAAW;EACX,iBAAiB;EACjB,mBAAmB;AACrB","sourcesContent":["html,\nbody {\n  background: #ffe4e1;\n}\nh3 {\n  text-align: center;\n  font-family: optima;\n  font-weight: bold;\n  color: #2f4f4f;\n}\na {\n  text-decoration: #8b4513;\n}\n.box {\n  background: #f5fffa;\n  padding: 1rem;\n  margin-left: 6rem;\n  margin-right: 6rem;\n  border-radius: 1rem;\n}\n\n/*blog*/\n.blog {\n  background: #f5fffa;\n  padding: 1rem;\n  margin-left: 6rem;\n  margin-right: 6rem;\n  margin-bottom: 6rem;\n  border-radius: 1rem;\n}\n.about {\n  text-align: center;\n  font-family: optima;\n  color: #2f4f4f;\n}\n\n/* projects */\n.box-project {\n  background: #f5fffa;\n  padding: 1rem;\n  margin-left: 4rem;\n  margin-right: 4rem;\n  margin-top: 2rem;\n  margin-bottom: 2rem;\n  border-radius: 1rem;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,\n    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,\n    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;\n}\n.title {\n  font-family: optima;\n  font-weight: bold;\n  text-align: left;\n  color: #2f4f4f;\n}\n.project {\n  font-family: optima;\n  color: #8b4513;\n  padding-bottom: 1rem;\n}\n#big-box {\n  background: #f5f5f5;\n  padding: 1rem;\n  margin-left: 4rem;\n  margin-right: 4rem;\n  border-radius: 1rem;\n  overflow-y: scroll;\n  max-height: 45rem;\n  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,\n    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;\n}\n\n#trip {\n  max-width: 8rem;\n}\n\n#chef {\n  max-width: 15rem;\n}\n\n/* footer */\nfooter {\n  background-color: #2f4f4f;\n  padding-bottom: 1rem;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n#footer-text {\n  color: lightgray;\n  padding-top: 2rem;\n  padding-right: 1rem;\n}\n\n.footer-img {\n  width: 50px;\n  padding-top: 1rem;\n  padding-right: 1rem;\n}\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "html,\nbody {\n  background: #ffe4e1;\n}\nh3 {\n  text-align: center;\n  font-family: optima;\n  font-weight: bold;\n  color: #2f4f4f;\n}\na {\n  text-decoration: #8b4513;\n}\n.box {\n  background: #f5fffa;\n  padding: 1rem;\n  margin-left: 6rem;\n  margin-right: 6rem;\n  border-radius: 1rem;\n}\n\n/*blog*/\n.blog {\n  background: #f5fffa;\n  padding: 1rem;\n  margin-left: 6rem;\n  margin-right: 6rem;\n  margin-bottom: 6rem;\n  border-radius: 1rem;\n}\n.about {\n  text-align: center;\n  font-family: optima;\n  color: #2f4f4f;\n}\n\n/* projects */\n.box-project {\n  background: #f5fffa;\n  padding: 1rem;\n  margin-left: 4rem;\n  margin-right: 4rem;\n  margin-top: 2rem;\n  margin-bottom: 2rem;\n  border-radius: 1rem;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,\n    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,\n    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;\n}\n.title {\n  font-family: optima;\n  font-weight: bold;\n  text-align: left;\n  color: #2f4f4f;\n}\n.project {\n  font-family: optima;\n  color: #8b4513;\n  padding-bottom: 1rem;\n}\n#big-box {\n  background: #f5f5f5;\n  padding: 1rem;\n  margin-left: 4rem;\n  margin-right: 4rem;\n  border-radius: 1rem;\n  overflow-y: scroll;\n  max-height: 45rem;\n  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,\n    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;\n}\n\n#trip {\n  max-width: 8rem;\n}\n\n#chef {\n  max-width: 15rem;\n}\n\n/* footer */\nfooter {\n  background-color: #2f4f4f;\n  padding-bottom: 1rem;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n#footer-text {\n  color: lightgray;\n  padding-top: 2rem;\n  padding-right: 1rem;\n}\n\n.footer-img {\n  width: 50px;\n  padding-top: 1rem;\n  padding-right: 1rem;\n}\n\n/* About */\nfigure {\n  display: flex;\n  justify-content: center;\n  margin-bottom: 1rem;\n  margin-top: 1rem;\n}\nfigcaption {\n  color: gray;\n  display: flex;\n  justify-content: center;\n}\n.box-about {\n  background: #f5fffa;\n  padding: 1rem;\n  margin-left: 2rem;\n  margin-right: 2rem;\n  margin-top: 2rem;\n  margin-bottom: 2rem;\n  border-radius: 1rem;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,\n    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,\n    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;\n}\n\n#about-box {\n  background: #f5f5f5;\n  padding: 1rem;\n  margin-left: 4rem;\n  margin-right: 4rem;\n  border-radius: 1rem;\n  overflow-y: scroll;\n  max-height: 45rem;\n  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,\n    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;\n}\n\n.about-me {\n  font-family: optima;\n  color: #8b4513;\n}\n\n#ps {\n  max-width: 8rem;\n}\n", "",{"version":3,"sources":["webpack://./public/index.css"],"names":[],"mappings":"AAAA;;EAEE,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,iBAAiB;EACjB,cAAc;AAChB;AACA;EACE,wBAAwB;AAC1B;AACA;EACE,mBAAmB;EACnB,aAAa;EACb,iBAAiB;EACjB,kBAAkB;EAClB,mBAAmB;AACrB;;AAEA,OAAO;AACP;EACE,mBAAmB;EACnB,aAAa;EACb,iBAAiB;EACjB,kBAAkB;EAClB,mBAAmB;EACnB,mBAAmB;AACrB;AACA;EACE,kBAAkB;EAClB,mBAAmB;EACnB,cAAc;AAChB;;AAEA,aAAa;AACb;EACE,mBAAmB;EACnB,aAAa;EACb,iBAAiB;EACjB,kBAAkB;EAClB,gBAAgB;EAChB,mBAAmB;EACnB,mBAAmB;EACnB;;uEAEqE;AACvE;AACA;EACE,mBAAmB;EACnB,iBAAiB;EACjB,gBAAgB;EAChB,cAAc;AAChB;AACA;EACE,mBAAmB;EACnB,cAAc;EACd,oBAAoB;AACtB;AACA;EACE,mBAAmB;EACnB,aAAa;EACb,iBAAiB;EACjB,kBAAkB;EAClB,mBAAmB;EACnB,kBAAkB;EAClB,iBAAiB;EACjB;uCACqC;AACvC;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,gBAAgB;AAClB;;AAEA,WAAW;AACX;EACE,yBAAyB;EACzB,oBAAoB;EACpB,aAAa;EACb,mBAAmB;EACnB,mBAAmB;EACnB,yBAAyB;AAC3B;;AAEA;EACE,gBAAgB;EAChB,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA;EACE,WAAW;EACX,iBAAiB;EACjB,mBAAmB;AACrB;;AAEA,UAAU;AACV;EACE,aAAa;EACb,uBAAuB;EACvB,mBAAmB;EACnB,gBAAgB;AAClB;AACA;EACE,WAAW;EACX,aAAa;EACb,uBAAuB;AACzB;AACA;EACE,mBAAmB;EACnB,aAAa;EACb,iBAAiB;EACjB,kBAAkB;EAClB,gBAAgB;EAChB,mBAAmB;EACnB,mBAAmB;EACnB;;uEAEqE;AACvE;;AAEA;EACE,mBAAmB;EACnB,aAAa;EACb,iBAAiB;EACjB,kBAAkB;EAClB,mBAAmB;EACnB,kBAAkB;EAClB,iBAAiB;EACjB;uCACqC;AACvC;;AAEA;EACE,mBAAmB;EACnB,cAAc;AAChB;;AAEA;EACE,eAAe;AACjB","sourcesContent":["html,\nbody {\n  background: #ffe4e1;\n}\nh3 {\n  text-align: center;\n  font-family: optima;\n  font-weight: bold;\n  color: #2f4f4f;\n}\na {\n  text-decoration: #8b4513;\n}\n.box {\n  background: #f5fffa;\n  padding: 1rem;\n  margin-left: 6rem;\n  margin-right: 6rem;\n  border-radius: 1rem;\n}\n\n/*blog*/\n.blog {\n  background: #f5fffa;\n  padding: 1rem;\n  margin-left: 6rem;\n  margin-right: 6rem;\n  margin-bottom: 6rem;\n  border-radius: 1rem;\n}\n.about {\n  text-align: center;\n  font-family: optima;\n  color: #2f4f4f;\n}\n\n/* projects */\n.box-project {\n  background: #f5fffa;\n  padding: 1rem;\n  margin-left: 4rem;\n  margin-right: 4rem;\n  margin-top: 2rem;\n  margin-bottom: 2rem;\n  border-radius: 1rem;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,\n    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,\n    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;\n}\n.title {\n  font-family: optima;\n  font-weight: bold;\n  text-align: left;\n  color: #2f4f4f;\n}\n.project {\n  font-family: optima;\n  color: #8b4513;\n  padding-bottom: 1rem;\n}\n#big-box {\n  background: #f5f5f5;\n  padding: 1rem;\n  margin-left: 4rem;\n  margin-right: 4rem;\n  border-radius: 1rem;\n  overflow-y: scroll;\n  max-height: 45rem;\n  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,\n    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;\n}\n\n#trip {\n  max-width: 8rem;\n}\n\n#chef {\n  max-width: 15rem;\n}\n\n/* footer */\nfooter {\n  background-color: #2f4f4f;\n  padding-bottom: 1rem;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n#footer-text {\n  color: lightgray;\n  padding-top: 2rem;\n  padding-right: 1rem;\n}\n\n.footer-img {\n  width: 50px;\n  padding-top: 1rem;\n  padding-right: 1rem;\n}\n\n/* About */\nfigure {\n  display: flex;\n  justify-content: center;\n  margin-bottom: 1rem;\n  margin-top: 1rem;\n}\nfigcaption {\n  color: gray;\n  display: flex;\n  justify-content: center;\n}\n.box-about {\n  background: #f5fffa;\n  padding: 1rem;\n  margin-left: 2rem;\n  margin-right: 2rem;\n  margin-top: 2rem;\n  margin-bottom: 2rem;\n  border-radius: 1rem;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,\n    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,\n    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;\n}\n\n#about-box {\n  background: #f5f5f5;\n  padding: 1rem;\n  margin-left: 4rem;\n  margin-right: 4rem;\n  border-radius: 1rem;\n  overflow-y: scroll;\n  max-height: 45rem;\n  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,\n    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;\n}\n\n.about-me {\n  font-family: optima;\n  color: #8b4513;\n}\n\n#ps {\n  max-width: 8rem;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -13340,6 +13711,60 @@ Container.displayName = 'Container';
 
 /***/ }),
 
+/***/ "./node_modules/react-bootstrap/esm/ElementChildren.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/react-bootstrap/esm/ElementChildren.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "forEach": () => (/* binding */ forEach),
+/* harmony export */   "hasChildOfType": () => (/* binding */ hasChildOfType),
+/* harmony export */   "map": () => (/* binding */ map)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/**
+ * Iterates through children that are typically specified as `props.children`,
+ * but only maps over children that are "valid elements".
+ *
+ * The mapFunction provided index will be normalised to the components mapped,
+ * so an invalid component would not increase the index.
+ *
+ */
+function map(children, func) {
+  let index = 0;
+  return react__WEBPACK_IMPORTED_MODULE_0__.Children.map(children, child => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.isValidElement(child) ? func(child, index++) : child);
+}
+
+/**
+ * Iterates through children that are "valid elements".
+ *
+ * The provided forEachFunc(child, index) will be called for each
+ * leaf child with the index reflecting the position relative to "valid components".
+ */
+function forEach(children, func) {
+  let index = 0;
+  react__WEBPACK_IMPORTED_MODULE_0__.Children.forEach(children, child => {
+    if ( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.isValidElement(child)) func(child, index++);
+  });
+}
+
+/**
+ * Finds whether a component's `children` prop includes a React element of the
+ * specified type.
+ */
+function hasChildOfType(children, type) {
+  return react__WEBPACK_IMPORTED_MODULE_0__.Children.toArray(children).some(child => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.isValidElement(child) && child.type === type);
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/react-bootstrap/esm/Fade.js":
 /*!**************************************************!*\
   !*** ./node_modules/react-bootstrap/esm/Fade.js ***!
@@ -14628,6 +15053,322 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/react-bootstrap/esm/Tab.js":
+/*!*************************************************!*\
+  !*** ./node_modules/react-bootstrap/esm/Tab.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _TabContainer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TabContainer */ "./node_modules/react-bootstrap/esm/TabContainer.js");
+/* harmony import */ var _TabContent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./TabContent */ "./node_modules/react-bootstrap/esm/TabContent.js");
+/* harmony import */ var _TabPane__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./TabPane */ "./node_modules/react-bootstrap/esm/TabPane.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+/* eslint-disable react/no-unused-prop-types */
+const propTypes = {
+  eventKey: prop_types__WEBPACK_IMPORTED_MODULE_2___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_2___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_2___default().number)]),
+  /**
+   * Content for the tab title.
+   */
+  title: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().node.isRequired),
+  /**
+   * The disabled state of the tab.
+   */
+  disabled: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().bool),
+  /**
+   * Class to pass to the underlying nav link.
+   */
+  tabClassName: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string),
+  /**
+   * Object containing attributes to pass to underlying nav link.
+   */
+  tabAttrs: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().object)
+};
+const Tab = () => {
+  throw new Error('ReactBootstrap: The `Tab` component is not meant to be rendered! ' + "It's an abstract component that is only valid as a direct Child of the `Tabs` Component. " + 'For custom tabs components use TabPane and TabsContainer directly');
+  // Needed otherwise docs error out.
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {});
+};
+Tab.propTypes = propTypes;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Object.assign(Tab, {
+  Container: _TabContainer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  Content: _TabContent__WEBPACK_IMPORTED_MODULE_4__["default"],
+  Pane: _TabPane__WEBPACK_IMPORTED_MODULE_5__["default"]
+}));
+
+/***/ }),
+
+/***/ "./node_modules/react-bootstrap/esm/TabContainer.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/react-bootstrap/esm/TabContainer.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _restart_ui_Tabs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @restart/ui/Tabs */ "./node_modules/@restart/ui/esm/Tabs.js");
+/* harmony import */ var _getTabTransitionComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./getTabTransitionComponent */ "./node_modules/react-bootstrap/esm/getTabTransitionComponent.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+const TabContainer = ({
+  transition,
+  ...props
+}) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_restart_ui_Tabs__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  ...props,
+  transition: (0,_getTabTransitionComponent__WEBPACK_IMPORTED_MODULE_3__["default"])(transition)
+});
+TabContainer.displayName = 'TabContainer';
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TabContainer);
+
+/***/ }),
+
+/***/ "./node_modules/react-bootstrap/esm/TabContent.js":
+/*!********************************************************!*\
+  !*** ./node_modules/react-bootstrap/esm/TabContent.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _createWithBsPrefix__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createWithBsPrefix */ "./node_modules/react-bootstrap/esm/createWithBsPrefix.js");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_createWithBsPrefix__WEBPACK_IMPORTED_MODULE_0__["default"])('tab-content'));
+
+/***/ }),
+
+/***/ "./node_modules/react-bootstrap/esm/TabPane.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/react-bootstrap/esm/TabPane.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _restart_ui_SelectableContext__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @restart/ui/SelectableContext */ "./node_modules/@restart/ui/esm/SelectableContext.js");
+/* harmony import */ var _restart_ui_TabContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @restart/ui/TabContext */ "./node_modules/@restart/ui/esm/TabContext.js");
+/* harmony import */ var _restart_ui_TabPanel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @restart/ui/TabPanel */ "./node_modules/@restart/ui/esm/TabPanel.js");
+/* harmony import */ var _ThemeProvider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ThemeProvider */ "./node_modules/react-bootstrap/esm/ThemeProvider.js");
+/* harmony import */ var _Fade__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Fade */ "./node_modules/react-bootstrap/esm/Fade.js");
+/* harmony import */ var _getTabTransitionComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./getTabTransitionComponent */ "./node_modules/react-bootstrap/esm/getTabTransitionComponent.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+
+
+const TabPane = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(({
+  bsPrefix,
+  transition,
+  ...props
+}, ref) => {
+  const [{
+    className,
+    // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+    as: Component = 'div',
+    ...rest
+  }, {
+    isActive,
+    onEnter,
+    onEntering,
+    onEntered,
+    onExit,
+    onExiting,
+    onExited,
+    mountOnEnter,
+    unmountOnExit,
+    transition: Transition = _Fade__WEBPACK_IMPORTED_MODULE_3__["default"]
+  }] = (0,_restart_ui_TabPanel__WEBPACK_IMPORTED_MODULE_4__.useTabPanel)({
+    ...props,
+    transition: (0,_getTabTransitionComponent__WEBPACK_IMPORTED_MODULE_5__["default"])(transition)
+  });
+  const prefix = (0,_ThemeProvider__WEBPACK_IMPORTED_MODULE_6__.useBootstrapPrefix)(bsPrefix, 'tab-pane');
+
+  // We provide an empty the TabContext so `<Nav>`s in `<TabPanel>`s don't
+  // conflict with the top level one.
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_restart_ui_TabContext__WEBPACK_IMPORTED_MODULE_7__["default"].Provider, {
+    value: null,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_restart_ui_SelectableContext__WEBPACK_IMPORTED_MODULE_8__["default"].Provider, {
+      value: null,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Transition, {
+        in: isActive,
+        onEnter: onEnter,
+        onEntering: onEntering,
+        onEntered: onEntered,
+        onExit: onExit,
+        onExiting: onExiting,
+        onExited: onExited,
+        mountOnEnter: mountOnEnter,
+        unmountOnExit: unmountOnExit,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Component, {
+          ...rest,
+          ref: ref,
+          className: classnames__WEBPACK_IMPORTED_MODULE_0___default()(className, prefix, isActive && 'active')
+        })
+      })
+    })
+  });
+});
+TabPane.displayName = 'TabPane';
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TabPane);
+
+/***/ }),
+
+/***/ "./node_modules/react-bootstrap/esm/Tabs.js":
+/*!**************************************************!*\
+  !*** ./node_modules/react-bootstrap/esm/Tabs.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var uncontrollable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! uncontrollable */ "./node_modules/uncontrollable/lib/esm/index.js");
+/* harmony import */ var _restart_ui_Tabs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @restart/ui/Tabs */ "./node_modules/@restart/ui/esm/Tabs.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Nav */ "./node_modules/react-bootstrap/esm/Nav.js");
+/* harmony import */ var _NavLink__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NavLink */ "./node_modules/react-bootstrap/esm/NavLink.js");
+/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NavItem */ "./node_modules/react-bootstrap/esm/NavItem.js");
+/* harmony import */ var _TabContent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./TabContent */ "./node_modules/react-bootstrap/esm/TabContent.js");
+/* harmony import */ var _TabPane__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./TabPane */ "./node_modules/react-bootstrap/esm/TabPane.js");
+/* harmony import */ var _ElementChildren__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ElementChildren */ "./node_modules/react-bootstrap/esm/ElementChildren.js");
+/* harmony import */ var _getTabTransitionComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./getTabTransitionComponent */ "./node_modules/react-bootstrap/esm/getTabTransitionComponent.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+
+
+
+
+
+function getDefaultActiveKey(children) {
+  let defaultActiveKey;
+  (0,_ElementChildren__WEBPACK_IMPORTED_MODULE_3__.forEach)(children, child => {
+    if (defaultActiveKey == null) {
+      defaultActiveKey = child.props.eventKey;
+    }
+  });
+  return defaultActiveKey;
+}
+function renderTab(child) {
+  const {
+    title,
+    eventKey,
+    disabled,
+    tabClassName,
+    tabAttrs,
+    id
+  } = child.props;
+  if (title == null) {
+    return null;
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_NavItem__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    as: "li",
+    role: "presentation",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_NavLink__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      as: "button",
+      type: "button",
+      eventKey: eventKey,
+      disabled: disabled,
+      id: id,
+      className: tabClassName,
+      ...tabAttrs,
+      children: title
+    })
+  });
+}
+const Tabs = props => {
+  const {
+    id,
+    onSelect,
+    transition,
+    mountOnEnter = false,
+    unmountOnExit = false,
+    variant = 'tabs',
+    children,
+    activeKey = getDefaultActiveKey(children),
+    ...controlledProps
+  } = (0,uncontrollable__WEBPACK_IMPORTED_MODULE_1__.useUncontrolled)(props, {
+    activeKey: 'onSelect'
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_restart_ui_Tabs__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    id: id,
+    activeKey: activeKey,
+    onSelect: onSelect,
+    transition: (0,_getTabTransitionComponent__WEBPACK_IMPORTED_MODULE_7__["default"])(transition),
+    mountOnEnter: mountOnEnter,
+    unmountOnExit: unmountOnExit,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Nav__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      ...controlledProps,
+      role: "tablist",
+      as: "ul",
+      variant: variant,
+      children: (0,_ElementChildren__WEBPACK_IMPORTED_MODULE_3__.map)(children, renderTab)
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_TabContent__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      children: (0,_ElementChildren__WEBPACK_IMPORTED_MODULE_3__.map)(children, child => {
+        const childProps = {
+          ...child.props
+        };
+        delete childProps.title;
+        delete childProps.disabled;
+        delete childProps.tabClassName;
+        delete childProps.tabAttrs;
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_TabPane__WEBPACK_IMPORTED_MODULE_10__["default"], {
+          ...childProps
+        });
+      })
+    })]
+  });
+};
+Tabs.displayName = 'Tabs';
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Tabs);
+
+/***/ }),
+
 /***/ "./node_modules/react-bootstrap/esm/ThemeProvider.js":
 /*!***********************************************************!*\
   !*** ./node_modules/react-bootstrap/esm/ThemeProvider.js ***!
@@ -15022,6 +15763,30 @@ function getInitialPopperStyles(position = 'absolute') {
     opacity: '0',
     pointerEvents: 'none'
   };
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-bootstrap/esm/getTabTransitionComponent.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/react-bootstrap/esm/getTabTransitionComponent.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ getTabTransitionComponent)
+/* harmony export */ });
+/* harmony import */ var _restart_ui_NoopTransition__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @restart/ui/NoopTransition */ "./node_modules/@restart/ui/esm/NoopTransition.js");
+/* harmony import */ var _Fade__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Fade */ "./node_modules/react-bootstrap/esm/Fade.js");
+
+
+function getTabTransitionComponent(transition) {
+  if (typeof transition === 'boolean') {
+    return transition ? _Fade__WEBPACK_IMPORTED_MODULE_0__["default"] : _restart_ui_NoopTransition__WEBPACK_IMPORTED_MODULE_1__["default"];
+  }
+  return transition;
 }
 
 /***/ }),
@@ -57718,6 +58483,143 @@ function _typeof(obj) {
     return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
   }, _typeof(obj);
 }
+
+/***/ }),
+
+/***/ "./node_modules/@react-aria/ssr/dist/import.mjs":
+/*!******************************************************!*\
+  !*** ./node_modules/@react-aria/ssr/dist/import.mjs ***!
+  \******************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SSRProvider": () => (/* binding */ $704cf1d3b684cc5c$export$9f8ac96af4b1b2ae),
+/* harmony export */   "useIsSSR": () => (/* binding */ $704cf1d3b684cc5c$export$535bd6ca7f90a273),
+/* harmony export */   "useSSRSafeId": () => (/* binding */ $704cf1d3b684cc5c$export$619500959fc48b26)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+/*
+ * Copyright 2020 Adobe. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ */ /*
+ * Copyright 2020 Adobe. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ */ // We must avoid a circular dependency with @react-aria/utils, and this useLayoutEffect is
+// guarded by a check that it only runs on the client side.
+// eslint-disable-next-line rulesdir/useLayoutEffectRule
+
+// Default context value to use in case there is no SSRProvider. This is fine for
+// client-only apps. In order to support multiple copies of React Aria potentially
+// being on the page at once, the prefix is set to a random number. SSRProvider
+// will reset this to zero for consistency between server and client, so in the
+// SSR case multiple copies of React Aria is not supported.
+const $704cf1d3b684cc5c$var$defaultContext = {
+    prefix: String(Math.round(Math.random() * 10000000000)),
+    current: 0,
+    isSSR: false
+};
+const $704cf1d3b684cc5c$var$SSRContext = /*#__PURE__*/ (0, react__WEBPACK_IMPORTED_MODULE_0__).createContext($704cf1d3b684cc5c$var$defaultContext);
+function $704cf1d3b684cc5c$export$9f8ac96af4b1b2ae(props) {
+    let cur = (0, react__WEBPACK_IMPORTED_MODULE_0__.useContext)($704cf1d3b684cc5c$var$SSRContext);
+    let counter = $704cf1d3b684cc5c$var$useCounter(cur === $704cf1d3b684cc5c$var$defaultContext);
+    let [isSSR, setIsSSR] = (0, react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
+    let value = (0, react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>({
+            // If this is the first SSRProvider, start with an empty string prefix, otherwise
+            // append and increment the counter.
+            prefix: cur === $704cf1d3b684cc5c$var$defaultContext ? "" : `${cur.prefix}-${counter}`,
+            current: 0,
+            isSSR: isSSR
+        }), [
+        cur,
+        counter,
+        isSSR
+    ]);
+    // If on the client, and the component was initially server rendered,
+    // then schedule a layout effect to update the component after hydration.
+    if (typeof window !== "undefined") // This if statement technically breaks the rules of hooks, but is safe
+    // because the condition never changes after mounting.
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    (0, react__WEBPACK_IMPORTED_MODULE_0__.useLayoutEffect)(()=>{
+        setIsSSR(false);
+    }, []);
+    return /*#__PURE__*/ (0, react__WEBPACK_IMPORTED_MODULE_0__).createElement($704cf1d3b684cc5c$var$SSRContext.Provider, {
+        value: value
+    }, props.children);
+}
+let $704cf1d3b684cc5c$var$canUseDOM = Boolean(typeof window !== "undefined" && window.document && window.document.createElement);
+let $704cf1d3b684cc5c$var$componentIds = new WeakMap();
+function $704cf1d3b684cc5c$var$useCounter(isDisabled = false) {
+    let ctx = (0, react__WEBPACK_IMPORTED_MODULE_0__.useContext)($704cf1d3b684cc5c$var$SSRContext);
+    let ref = (0, react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+    if (ref.current === null && !isDisabled) {
+        var _React___SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED, _React___SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED_ReactCurrentOwner;
+        // In strict mode, React renders components twice, and the ref will be reset to null on the second render.
+        // This means our id counter will be incremented twice instead of once. This is a problem because on the
+        // server, components are only rendered once and so ids generated on the server won't match the client.
+        // In React 18, useId was introduced to solve this, but it is not available in older versions. So to solve this
+        // we need to use some React internals to access the underlying Fiber instance, which is stable between renders.
+        // This is exposed as ReactCurrentOwner in development, which is all we need since StrictMode only runs in development.
+        // To ensure that we only increment the global counter once, we store the starting id for this component in
+        // a weak map associated with the Fiber. On the second render, we reset the global counter to this value.
+        // Since React runs the second render immediately after the first, this is safe.
+        // @ts-ignore
+        let currentOwner = (_React___SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = (0, react__WEBPACK_IMPORTED_MODULE_0__).__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED) === null || _React___SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED === void 0 ? void 0 : (_React___SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED_ReactCurrentOwner = _React___SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner) === null || _React___SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED_ReactCurrentOwner === void 0 ? void 0 : _React___SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED_ReactCurrentOwner.current;
+        if (currentOwner) {
+            let prevComponentValue = $704cf1d3b684cc5c$var$componentIds.get(currentOwner);
+            if (prevComponentValue == null) // On the first render, and first call to useId, store the id and state in our weak map.
+            $704cf1d3b684cc5c$var$componentIds.set(currentOwner, {
+                id: ctx.current,
+                state: currentOwner.memoizedState
+            });
+            else if (currentOwner.memoizedState !== prevComponentValue.state) {
+                // On the second render, the memoizedState gets reset by React.
+                // Reset the counter, and remove from the weak map so we don't
+                // do this for subsequent useId calls.
+                ctx.current = prevComponentValue.id;
+                $704cf1d3b684cc5c$var$componentIds.delete(currentOwner);
+            }
+        }
+        ref.current = ++ctx.current;
+    }
+    return ref.current;
+}
+function $704cf1d3b684cc5c$export$619500959fc48b26(defaultId) {
+    let ctx = (0, react__WEBPACK_IMPORTED_MODULE_0__.useContext)($704cf1d3b684cc5c$var$SSRContext);
+    // If we are rendering in a non-DOM environment, and there's no SSRProvider,
+    // provide a warning to hint to the developer to add one.
+    if (ctx === $704cf1d3b684cc5c$var$defaultContext && !$704cf1d3b684cc5c$var$canUseDOM) console.warn("When server rendering, you must wrap your application in an <SSRProvider> to ensure consistent ids are generated between the client and server.");
+    let counter = $704cf1d3b684cc5c$var$useCounter(!!defaultId);
+    return defaultId || `react-aria${ctx.prefix}-${counter}`;
+}
+function $704cf1d3b684cc5c$export$535bd6ca7f90a273() {
+    let cur = (0, react__WEBPACK_IMPORTED_MODULE_0__.useContext)($704cf1d3b684cc5c$var$SSRContext);
+    return cur.isSSR;
+}
+
+
+
+
+
+//# sourceMappingURL=module.js.map
+
 
 /***/ }),
 
