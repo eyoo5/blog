@@ -16,6 +16,7 @@ const Root = () => {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/posts" element={<Posts />} />
         <Route exact path="/projects" element={<Projects />} />
+        <Route exact path="/" element={<Navigate replace to="/home" />} />
       </Routes>
     </BrowserRouter>
   );

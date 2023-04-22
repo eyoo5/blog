@@ -148,7 +148,7 @@ const About = () => {
             <div className="box-about">
               <p className="about">
                 If you are interested, need advice, or just curious about
-                something - do not hesitate to contact me! if you prefer
+                something - do not hesitate to contact me! If you prefer
                 LinkedIn, you may press on the link in the footer!
               </p>
               <div className="about">
