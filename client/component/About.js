@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Tab, Tabs, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Tab, Tabs, OverlayTrigger, Tooltip, Image } from "react-bootstrap";
 
 const About = () => {
   const [key, setKey] = useState("home");
@@ -21,9 +21,10 @@ const About = () => {
               <div className="about">
                 <h5>I am a former teacher now turned coder!</h5>
                 <figure>
-                  <img
+                  <Image
                     src="5_Grade_Team.jpeg"
                     width="300"
+                    rounded="true"
                     style={{ marginTop: "1rem" }}
                   />
                 </figure>
@@ -44,7 +45,7 @@ const About = () => {
                   does not mean I have stopped learning! Currently, I am
                   dabbling into Python, MongoDB, and Cloud~
                 </p>
-                <img src="PERN.png" width="600" />
+                <Image rounded="true" src="PERN.png" width="500" />
               </div>
             </div>
           </Tab>
