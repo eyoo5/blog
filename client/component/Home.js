@@ -33,7 +33,7 @@ const Home = () => {
           style={{
             display: "-webkit-inline-flex",
             marginRight: "auto",
-            marginLeft: "5rem",
+            marginLeft: "20rem",
           }}
         ></Image>
         <span ref={el}></span>
