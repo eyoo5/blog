@@ -23,20 +23,33 @@ const Home = () => {
     };
   }, []);
 
+  //   Background Image:
+  const myStyle = {
+    backgroundImage: "url('About-Background.jpg')",
+    height: "100vh",
+    marginTop: "-70px",
+    fontSize: "50px",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+  };
+
   return (
     <>
-      <div className="home-container">
-        <Image
-          roundedCircle="true"
-          src="ProfilePic.jpeg"
-          width="250"
-          style={{
-            display: "-webkit-inline-flex",
-            marginRight: "auto",
-            marginLeft: "20rem",
-          }}
-        ></Image>
-        <span ref={el}></span>
+      <div style={myStyle}>
+        <br />
+        <div className="home-container">
+          {/* <Image
+            roundedCircle="true"
+            src="ProfilePic.jpeg"
+            width="250"
+            style={{
+              display: "-webkit-inline-flex",
+              marginRight: "10rem",
+              marginLeft: "auto",
+            }}
+          ></Image> */}
+          <span ref={el}></span>
+        </div>
       </div>
     </>
   );

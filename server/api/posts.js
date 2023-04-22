@@ -25,6 +25,7 @@ posts.get("/userId", async (req, res, next) => {
         {},
         options
       );
+
       res.status(200).json(data);
     } else {
       console.log(new Error("Trouble fetching all posts"));
