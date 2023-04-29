@@ -1,5 +1,4 @@
 import axios from "axios";
-import history from "../history";
 import { getCookie, setCookie } from "../cookies";
 
 const TOKEN = "token";
@@ -45,7 +44,6 @@ export const authenticateLogin = (username, password) => async (dispatch) => {
 export const logout = () => {
   setCookie(TOKEN, "", 0);
   setCookie("userId", "", 0);
-  history.push("/");
   return {
     type: SET_AUTH,
     auth: {},

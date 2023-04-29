@@ -16,6 +16,9 @@ const About = () => {
   return (
     <>
       <br />
+      <div id="profile">
+        <Image src="ProfilePic.jpeg" roundedCircle="true" width="70rem" />
+      </div>
       <h3>Who am I?</h3>
       <br />
       <div id="about-box">
@@ -29,15 +32,6 @@ const About = () => {
             <div className="box-about">
               <div className="about">
                 <Card>
-                  <figure>
-                    <Image
-                      src="5_Grade_Team.jpeg"
-                      width="300"
-                      rounded="true"
-                      style={{ marginTop: "1rem" }}
-                    />
-                  </figure>
-                  <figcaption>Former 5th Grade Team</figcaption>
                   <Card.Body>
                     <p style={{ marginTop: "1rem" }}>
                       I have worked for the NYC Department of Education for 6
@@ -47,6 +41,16 @@ const About = () => {
                       I have gained like communication, leadership, and
                       organization will be with me forever!
                     </p>
+                    <figure>
+                      <Image
+                        src="5_Grade_Team.jpeg"
+                        width="300"
+                        rounded="true"
+                        style={{ marginTop: "1rem" }}
+                      />
+                    </figure>
+                    <figcaption>5th Grade Teachers</figcaption>
+                    <br />
                     <p>
                       Along being a teacher, I am a life long learner. I studied
                       foundational JavaScript and entered a coding bootcamp in
@@ -66,7 +70,7 @@ const About = () => {
               </div>
             </div>
           </Tab>
-          <Tab eventKey="careers" title="Careers">
+          <Tab eventKey="career" title="Career">
             <div className="box-about">
               <Card>
                 <Card.Header>

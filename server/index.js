@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 
@@ -14,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api", require("./api"));
-// app.use("/auth", require("./auth"));
+app.use("/auth", require("./auth"));
 
 app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "..", "/public/index.html"));

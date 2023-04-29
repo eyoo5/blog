@@ -4,11 +4,12 @@ import { createLogger } from "redux-logger";
 import thunkMiddleware from "redux-thunk";
 import userReducer from "./redux/user";
 import postsReducer from "./redux/posts";
+import auth from "./redux/auth";
 
 const reducer = combineReducers({
   user: userReducer,
   posts: postsReducer,
-  // auth,
+  auth,
 });
 
 const store = createStore(

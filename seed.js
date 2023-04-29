@@ -10,6 +10,7 @@ async function seed() {
       firstName: "Esther",
       lastName: "Yoo",
       password: "blogPass5!",
+      username: "eyoo",
       email: "liletchie@gmail.com",
       description: "",
     }),

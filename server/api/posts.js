@@ -6,6 +6,7 @@ posts.get("/userId", async (req, res, next) => {
   try {
     const userId = 1; //my userId
     const user = await User.findByPk(userId);
+
     if (user) {
       const options = {};
       //  Trying pagination:

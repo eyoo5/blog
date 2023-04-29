@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 const db = require("../db");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-require("dotenv").config();
+// require("dotenv").config();
 
 const User = db.define("User", {
   firstName: {
@@ -13,9 +13,15 @@ const User = db.define("User", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  username: {
+    type: DataTypes.STRING,
+  },
   password: {
     type: DataTypes.STRING(64),
     allowNull: false,
+  },
+  token: {
+    type: DataTypes.TEXT,
   },
   email: {
     type: DataTypes.STRING,
@@ -48,7 +54,7 @@ User.authenticate = async function ({ username, password }) {
   return token;
 };
 
-User.findByToken = async function () {
+User.findByToken = async function (token) {
   try {
     const { id } = await jwt.verify(token, process.env.JWT);
     const user = User.findByPk(id);
